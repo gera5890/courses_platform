@@ -80,4 +80,8 @@ class User extends Authenticatable
     public function courses_enrolled(){
         $this->belongsToMany('App\Models\Course');
     }
+
+    public function lessons(){
+        return $this->belongsToMany('App\Models\Lesson');
+    }
 }

@@ -19,6 +19,23 @@ class Course extends Model
         return $this->hasMany('App\Models\Review');
     }
 
+    public function requirements(){
+        return $this->hasMany('App\Models\Requirement');
+    }
+
+    public function goals(){
+        return $this->hasMany('App\Models\Goal');
+    }
+
+    public function audiences(){
+        return $this->hasMany('App\Models\Audience');
+    }
+
+    public function sections(){
+        return $this->hasMany('App\Models\Section');
+    }
+
+
 
     //Relacion uno a muchos inversa
 

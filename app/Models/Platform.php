@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Platform extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
 
     //Relacion uno a muchos
     public function lessons(){

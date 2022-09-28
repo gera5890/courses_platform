@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Description extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
 
     //Relacion uno a uno inversa
 

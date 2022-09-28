@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Requirement extends Model
 {
-    use HasFactory;
+    use HasFactory; protected $guarded = ['id'];
 
     //Relacion uno a muchos inversa
 

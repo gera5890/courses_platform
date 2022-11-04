@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Storage::makeDirectory('cursos');
 
         $this->call(UserSeeder::class);
         $this->call(LevelSeeder::class);

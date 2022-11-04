@@ -28,3 +28,7 @@ Route::middleware([
 Route::get('/cursos', function(){
     return "Aqui se van a mostrar los cursos";
 })->name('courses.index');
+
+Route::get('/cursos/{course}',function(){
+    return "Aqui se va a mostrar la informacion del curso";
+})->name('course.show');

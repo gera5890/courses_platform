@@ -1,4 +1,5 @@
 <x-app-layout>
+    <!--Portada principal-->
     <section class="bg-cover bg-center" style="background-image: url({{ asset('img/home/college.jpg') }})">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-36">
             <div class="w-full md:w-3/4 lg:w-1/2">
@@ -136,7 +137,7 @@
                             </p>
                         </div>
 
-                        <a href="{{ route('course.show', $course) }}" class="flex justify-center text-lg bg-blue-500 p-3 rounded-lg shadow-sm shadow-black hover:bg-red-400
+                        <a href="{{ route('courses.show', $course) }}" class="flex justify-center text-lg bg-blue-500 p-3 rounded-lg shadow-sm shadow-black hover:bg-red-400
                         hover:text-white transition-all duration-500 w-full mt-4">
                             M&aacute;s informaci&oacute;n
                         </a>

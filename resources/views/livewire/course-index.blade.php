@@ -58,7 +58,7 @@
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
         @foreach ($courses as $course)
-            <article class="bg-white shadow rounded-sm overflow-hidden">
+            <article class="bg-white shadow rounded-sm overflow-hidden transform hover:-translate-y-3 duration-700 hover:shadow-black">
                 <img src="{{Storage::url($course->image->url) }}" alt="" class="h-32 w-full object-cover" width="640" height="400">
                 <div class="px-6 py-4">
                     <h1 class="text-xl text-gray-700 mb-2 leading-6">{{ Str::limit($course->title, 40, '...')}}</h1>

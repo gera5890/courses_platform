@@ -14,7 +14,7 @@
                     <i class="fas fa-angle-down text-sm ml-2"></i>
                 </button>
                 <!-- Dropdown Body -->
-                <div class="absolute right-0 w-40 mt-2 py-2 bg-white border rounded shadow-xl z-10" x-show="open" x-on:click.away="open = false">
+                <div class="absolute right-0 w-auto mt-2 py-2 bg-white border rounded shadow-xl z-10" x-show="open" x-on:click.away="open = false">
                     @foreach ($categories as $category)
                     <a
                     class="cursor-pointer transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-blue-700 hover:text-white" wire:click="$set('category_id',{{ $category->id }})" x-on:click="open = false">{{ $category->name }}</a>
@@ -31,7 +31,7 @@
                     <i class="fas fa-angle-down text-sm ml-2"></i>
                 </button>
                 <!-- Dropdown Body -->
-                <div class="absolute right-0 w-40 mt-2 py-2 bg-white border rounded shadow-xl z-10" x-show="open" x-on:click.away="open = false">
+                <div class="absolute right-0 w-auto mt-2 py-2 bg-white border rounded shadow-xl z-10" x-show="open" x-on:click.away="open = false">
                     @foreach ($levels as $level)
                     <a
                     class="cursor-pointer transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-blue-700 hover:text-white" wire:click="$set('level_id',{{ $level->id }})" x-on:click="open = false">{{ $level->name }}</a>

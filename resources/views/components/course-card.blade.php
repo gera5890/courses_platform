@@ -1,9 +1,9 @@
 @props(['course'])
 
-<article class="bg-white shadow rounded-sm overflow-hidden transform hover:-translate-y-3 duration-700 hover:shadow-black">
+<article class="card">
     <img src="{{Storage::url($course->image->url) }}" alt="" class="h-32 w-full object-cover" width="640" height="400">
-    <div class="px-6 py-4">
-        <h1 class="text-xl text-gray-700 mb-2 leading-6">{{ Str::limit($course->title, 40, '...')}}</h1>
+    <div class="card-body">
+        <h1 class="card-title">{{ Str::limit($course->title, 40, '...')}}</h1>
         <p class="text-gray-700">
             Prof: {{ $course->teacher->name }}
         </p>

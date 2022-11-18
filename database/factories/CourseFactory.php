@@ -7,8 +7,8 @@ use App\Models\Course;
 use App\Models\Level;
 use App\Models\Price;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 use App\Models\User;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Course>
@@ -24,7 +24,7 @@ class CourseFactory extends Factory
     {
         $title = $this->faker->sentence();
         return [
-            'title' => $this->faker->sentence(),
+            'title' => $title,
             'subtitle' => $this->faker->sentence(),
             'description' => $this->faker->paragraph(),
             'status' => $this->faker->randomElement([Course::BORRADOR, Course::REVISION, Course::PUBLICADO]),

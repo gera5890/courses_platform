@@ -87,7 +87,7 @@
 
                     @can('enrolled', $course)
                         <div class="flex justify-center">
-                            <a href="{{ route('course.status',$course) }}" class="justify-center text-center text-lg bg-green-500 p-3 rounded-lg shadow-lg shadow-black hover:bg-green-700
+                            <a href="{{ route('courses.status',$course) }}" class="justify-center text-center text-lg bg-green-500 p-3 rounded-lg shadow-lg shadow-black hover:bg-green-700
                             hover:text-white transition-all duration-500">
                             Continuar con el curso
                         </a>

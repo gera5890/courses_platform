@@ -26,6 +26,8 @@ class CourseStatus extends Component
         if(!$this->current){
             $this->current = $course->lessons->last();
         }
+
+        $this->authorize('enrolled', $course);
     }
 
     public function render()

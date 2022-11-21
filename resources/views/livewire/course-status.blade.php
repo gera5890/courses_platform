@@ -1,7 +1,7 @@
 <div class="mt-8">
     {{-- A good traveler has no fixed plans and is not intent upon arriving. --}}
-    <div class="container grid grid-cols-3 gap-8">
-        <div class="col-span-2">
+    <div class="container grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-2">
             <div class="embed-responsive">
                 {!! $current->iframe !!}
             </div>
@@ -13,9 +13,14 @@
                         {{ $current->description->name }}
                     </div>
                 @endif
-            <div class="flex items-center mt-4 cursor-pointer">
-                <i class="fas fa-toggle-off text-gray-600 text-2xl"></i>
-                <p class="text-sm ml-2">Marcar esta la unidad como culminada</p>
+            <div class="flex items-center mt-4 cursor-pointer" wire:click="completed">
+                @if ($current->completed)
+                <i class="fas fa-toggle-on text-green-600 text-2xl"></i>
+                <p class="text-sm ml-2">Unidad culminada</p>
+                @else
+                    <i class="fas fa-toggle-off text-gray-600 text-2xl"></i>
+                    <p class="text-sm ml-2">Marcar esta la unidad como culminada</p>
+                @endif
             </div>
 
             <div class="card mt-2 hover:translate-y-0">
@@ -44,11 +49,11 @@
                     </div>
                 </div>
                 <p class="text-gray-600 text-sm mt-4">
-                    20% completado
+                    {{ $this->advance . '% completado' }}
                 </p>
                 <div class="relative pt-1">
                     <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-green-300">
-                      <div style="width:30%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-600"></div>
+                      <div style="width:{{ $this->advance . '%' }}" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-600 transition-all duration-500"></div>
                     </div>
                 </div>
                 <ul>

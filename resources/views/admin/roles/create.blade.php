@@ -3,11 +3,19 @@
 @section('title', 'UPVM')
 
 @section('content_header')
-    <h1>UPVM Dashboard</h1>
+    <h1>Crear nuevo rol</h1>
 @stop
 
 @section('content')
-    <p>Bienvenido al panel de administracion de UPVM plataforma en linea</p>
+    <div class="card">
+        <div class="card-body">
+            {!! Form::open(['route' => 'admin.roles.store']) !!}
+                @include('admin.roles.partials.form')
+
+                {!! Form::submit('Crear role', ['class' => 'btn btn-primary mt-2']) !!}
+            {!! Form::close() !!}
+        </div>
+    </div>
 @stop
 
 @section('css')

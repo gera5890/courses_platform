@@ -28,45 +28,53 @@
                     @endif
                 </div>
             </div>
-            <p>
-                Indice: {{ $this->index }}
-            </p>
-            <p>
-                Prevoius: @if ($this->previous)
-                {{ $this->previous->id }}
-                @endif
-            </p>
-            <p>
-                Next: @if ($this->next)
-                {{ $this->next->id }}
-                @endif
-            </p>
         </div>
         <div class="card">
             <div class="card-body">
-                <h1>{{ $course->title }}</h1>
+                <h1 class="text-2xl leading-8 text-center mb-4">{{ $course->title }}</h1>
                 <div class="flex items-center">
                     <figure>
-                        <img class="rounded-full" src="{{ $course->teacher->profile_photo_url }}" alt="">
+                        <img class="rounded-full w-12 h-12 object-cover mr-4" src="{{ $course->teacher->profile_photo_url }}" alt="">
                     </figure>
                     <div>
                         <p>
                             {{ $course->teacher->name }}
                         </p>
-                        <a class="text-blue-400" href="">{{'@' . Str::slug($course->teacher->name, '') }}</a>
+                        <a class="text-blue-400 text-sm" href="">{{'@' . Str::slug($course->teacher->name, '') }}</a>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm mt-4">
+                    20% completado
+                </p>
+                <div class="relative pt-1">
+                    <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-green-300">
+                      <div style="width:30%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-600"></div>
                     </div>
                 </div>
                 <ul>
                     @foreach ($course->sections as $section)
-                        <li>
-                            <a href="" class="font-bold">{{ $section->name }}</a>
+                        <li class="text-gray-600 mb-4">
+                            <a href="" class="font-bold text-base inline-block mb-2">{{ $section->name }}</a>
                             <ul>
                                 @foreach ($section->lessons as $lesson)
-                                    <li>
-                                        <a wire:click="changeLesson({{ $lesson }})" class="cursor-pointer">
-                                            {{ $lesson->name }} @if ($lesson->completed)
-                                                (completado)
+                                    <li class="flex">
+                                        <div>
+                                            @if ($lesson->completed)
+                                                @if ($current->id == $lesson->id)
+                                                    <span class="inline-block w-4 h-4 border-4 border-green-400 rounded-full mr-2 mt-1"></span>
+                                                @else
+                                                    <span class="inline-block w-4 h-4 bg-green-600 rounded-full mr-2 mt-1"></span>
+                                                @endif
+                                            @else
+                                                @if ($current->id == $lesson->id)
+                                                    <span class="inline-block w-4 h-4 border-4 border-gray-500 rounded-full mr-2 mt-1"></span>
+                                                @else
+                                                    <span class="inline-block w-4 h-4 bg-gray-500 rounded-full mr-2 mt-1"></span>
+                                                @endif
                                             @endif
+                                        </div>
+                                        <a wire:click="changeLesson({{ $lesson }})" class="cursor-pointer">
+                                            {{ $lesson->name }}
                                         </a>
                                     </li>
                                 @endforeach

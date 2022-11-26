@@ -120,9 +120,14 @@
                                 Perfil
                             </x-jet-dropdown-link>
 
+                            @can('Leer cursos')
+
+
                             <x-jet-dropdown-link href="{{ route('instructor.courses.index') }}">
                                 Instructor
                             </x-jet-dropdown-link>
+
+                            @endcan
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">

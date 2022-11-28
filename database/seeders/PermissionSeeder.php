@@ -41,7 +41,7 @@ class PermissionSeeder extends Seeder
         ]);
 
         Permission::create([
-            'name' => 'Listar Role'
+            'name' => 'Listar role'
         ]);
 
         Permission::create([

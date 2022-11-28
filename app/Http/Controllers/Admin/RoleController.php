@@ -15,6 +15,18 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('can:Listar role')->only('index');
+        $this->middleware('can:Crear role')->only('create','store');
+        $this->middleware('can:Editar role')->only('edit','update');
+        $this->middleware('can:Eliminar role')->only('destroy');
+
+
+
+    }
+
     public function index()
     {
         //

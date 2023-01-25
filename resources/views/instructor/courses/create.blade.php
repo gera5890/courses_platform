@@ -7,8 +7,11 @@
 
                 <hr class="mt-2 mb-6">
 
-                {!! Form::open(['route' => 'instructor.courses.store', 'files' => true]) !!}
-                    @include('instructor.courses.partials.form')
+                {!! Form::open(['route' => 'instructor.courses.store', 'files' => true, 'autocomplete' => 'off']) !!}
+
+                {!! Form::hidden('user_id', auth()->user()->id) !!}
+
+                @include('instructor.courses.partials.form')
                     <div class="flex justify-end">
                         {!! Form::submit('Crear nuevo curso', ['class' => 'bg-green-500 p-4 rounded-md border border-black text-semibold text-white cursor-pointer hover:bg-green-700']) !!}
                     </div>

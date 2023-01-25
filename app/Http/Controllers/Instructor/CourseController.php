@@ -10,8 +10,11 @@ use App\Models\Course;
 use App\Models\Level;
 use App\Models\Price;
 
+use Illuminate\Support\Facades\Storage;
+
 class CourseController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -48,6 +51,26 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         //
+
+        $request->validate([
+            'title' => 'required',
+            'slug' => 'required|unique:courses',
+            'subtitle' => 'required',
+            'description' => 'required',
+            'category_id' => 'required',
+            'level_id' => 'required',
+            'price_id' => 'required'
+        ]);
+
+        $course = Course::create($request->all());
+
+
+        if($request->file('file')){
+            $url = Storage::put('public/cursos', $request->file('file'));
+
+            $course->image()->create(['url' => $url]);
+        }
+        return redirect()->route('instructor.courses.edit',$course);
     }
 
     /**

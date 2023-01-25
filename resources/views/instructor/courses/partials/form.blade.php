@@ -1,19 +1,31 @@
-
                 <div class="mb-4">
                     {!! Form::label('title', 'T&iacute;tulo del curso') !!}
-                    {!! Form::text('title', null, ['class' => 'form-input block w-full mt-1']) !!}
+                    {!! Form::text('title', null, ['class' => 'form-input block w-full mt-1'. ($errors->has('title') ? ' border-red-600' : "")]) !!}
+
+                    @error('title')
+                        <strong class="text-sm text-red-600">{{ $message }}</strong>
+                    @enderror
                 </div>
                 <div class="mb-4">
                     {!! Form::label('slug', 'Slug del curso') !!}
-                    {!! Form::text('slug', null, ['class' => 'form-input block w-full mt-1']) !!}
+                    {!! Form::text('slug', null,['readonly' => 'readonly','class' => 'form-input block w-full mt-1'. ($errors->has('slug') ? ' border-red-600' : "")]) !!}
+                    @error('slug')
+                        <strong class="text-sm text-red-600">{{ $message }}</strong>
+                    @enderror
                 </div>
                 <div class="mb-4">
                     {!! Form::label('subtitle', 'Subtitulo del curso') !!}
-                    {!! Form::text('subtitle', null, ['class' => 'form-input block w-full mt-1']) !!}
+                    {!! Form::text('subtitle', null, ['class' => 'form-input block w-full mt-1'. ($errors->has('subtitle') ? ' border-red-600' : "")]) !!}
+                    @error('subtitle')
+                        <strong class="text-sm text-red-600">{{ $message }}</strong>
+                    @enderror
                 </div>
                 <div class="mb-4">
                     {!! Form::label('description', 'Descripci&oacute;n del curso') !!}
                     {!! Form::textarea('description', null, ['class' => 'form-input block w-full mt-1']) !!}
+                    @error('description')
+                        <strong class="text-sm text-red-600">{{ $message }}</strong>
+                    @enderror
                 </div>
 
                 <div class="grid grid-cols-3 gap-4">
@@ -37,10 +49,10 @@
 
                 <div class="grid grid-cols-2 gap-4">
                     <figure>
-                        @isset($course)
+                        @isset($course->image)
                         <img id="picture" class="w-full h-64 object-cover object-center" src="{{ Storage::url($course->image->url) }}" alt="">
                         @else
-                        <img id="picture" class="w-full h-64 object-cover object-center" src="https://images.pexels.com/photos/4491461/pexels-photo-4491461.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+                        <img id="picture" class="w-full h-64 object-cover object-center" src="https://becas.news/wp-content/uploads/UPVM.webp" alt="">
                         @endisset
                     </figure>
                     <div>

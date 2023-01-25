@@ -39,8 +39,13 @@
                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <div class="flex items-center">
                                 <div class="flex-shrink-0 w-10 h-10">
-                                    <img class="w-full h-full rounded-full"
-                                        src="{{ Storage::url($course->image->url) }}" alt="" />
+                                    @isset($course->image)
+                                    <img class="w-full h-full rounded-full object-cover object-center"
+                                    src="{{ Storage::url($course->image->url) }}" alt="" />
+                                    @else
+                                    <img class="w-full h-full rounded-full object-cover object-center"
+                                        src="https://becas.news/wp-content/uploads/UPVM.webp" alt="" />
+                                    @endisset
                                 </div>
                                 <div class="ml-3">
                                     <p class="text-gray-900 whitespace-no-wrap">

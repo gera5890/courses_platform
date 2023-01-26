@@ -59,6 +59,9 @@
                         <p class="mb-2">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, mollitia. Dolor, at fugiat earum eos harum dolorum, fuga iusto nihil, sequi sint ea magnam perspiciatis! Unde consequuntur debitis sit dolores?
                         </p>
-                        {!! Form::file('file', ['class' => 'form-input w-full', 'id' => 'file']) !!}
+                        {!! Form::file('file', ['class' => 'form-input w-full' . ($errors->has('file') ? ' border-red-600' : ""), 'id' => 'file','accept' => 'image/*']) !!}
+                        @error('file')
+                        <strong class="text-sm text-red-600">{{ $message }}</strong>
+                    @enderror
                     </div>
                 </div>

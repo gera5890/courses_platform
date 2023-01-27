@@ -15,9 +15,9 @@ class CoursesStudents extends Component
     public $course, $search;
 
     public function mount(Course $course) {
-       // $this->authorize('dictated', $course);
 
         $this->course = $course;
+        $this->authorize('dictated', $course);
     }
 
     public function updatingSearch() {

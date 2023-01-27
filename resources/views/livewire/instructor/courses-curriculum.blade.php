@@ -10,7 +10,7 @@
 
 
     @foreach ($course->sections as $item)
-        <article class="card mb-6">
+        <article class="card mb-6" x-data="{open: true}">
             <div class="card-body bg-gray-200">
 
                 @if ($section->id == $item->id)
@@ -22,7 +22,7 @@
                     </form>
                 @else
                 <header class="flex justify-between items-center">
-                    <h1 class="cursor-pointer">
+                    <h1 class="cursor-pointer" x-on:click="open = !open">
                         <strong>Secci&oacuten: </strong>{{ $item->name }}
                     </h1>
                     <div>
@@ -31,7 +31,7 @@
                     </div>
                 </header>
 
-                <div class="mt-4">
+                <div class="mt-4" x-show="open">
                     @livewire('instructor.courses-lesson', ['section' => $item], key($item->id))
                 </div>
 

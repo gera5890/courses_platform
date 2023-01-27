@@ -31,6 +31,10 @@
                     </div>
                 </header>
 
+                <div class="mt-4">
+                    @livewire('instructor.courses-lesson', ['section' => $item], key($item->id))
+                </div>
+
                 @endif
             </div>
         </article>

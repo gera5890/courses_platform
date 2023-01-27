@@ -4,7 +4,7 @@
         {{ $course->slug }}
     </x-slot>
     <h1 class="text-2xl font-bold">
-        Lecciones del curso
+        LECCIONES DEL CURSO
     </h1>
     <hr class="mt-2 mb-6">
 

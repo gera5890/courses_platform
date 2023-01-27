@@ -3,7 +3,7 @@
     <article class="card mt-4">
         <div class="card-body">
             @if ($lesson->id == $item->id)
-                <div>
+                <form wire:submit.prevent="update">
                     <div class="flex items-center">
                         <label class="w-32">
                             Nombre:
@@ -38,17 +38,17 @@
                     @enderror
 
                     <div class="mt-4 flex justify-end">
-                        <button class="justify-center text-center text-sm bg-red-500 p-3 rounded-lg shadow-md shadow-black hover:bg-red-600
+                        <button type="button" class="justify-center text-center text-sm bg-red-500 p-3 rounded-lg shadow-md shadow-black hover:bg-red-600
                     hover:text-white transition-all duration-500 mr-2" wire:click="cancel">
                         Cancelar
                     </button>
-                    <button class="justify-center text-center text-sm bg-green-500 p-3 rounded-lg shadow-md shadow-black hover:bg-green-700
-                    hover:text-white transition-all duration-500" wire:click="update">
+                    <button type="submit" class="justify-center text-center text-sm bg-green-500 p-3 rounded-lg shadow-md shadow-black hover:bg-green-700
+                    hover:text-white transition-all duration-500" >
                         Actualizar
                     </button>
                     </div>
 
-                </div>
+                </form>
             @else
             <header>
                 <h1>
@@ -64,7 +64,7 @@
                 <p class="text-sm">
                     Enlace <a class="text-blue-600" href="{{ $item->url }}" target="_blank">{{ $item->url }}</a>
                 </p>
-                <div class="mt-2">
+                <div class="my-2">
                     <button class="justify-center text-center text-sm bg-red-500 p-3 rounded-lg shadow-md shadow-black hover:bg-red-600
                     hover:text-white transition-all duration-500 mr-2"  wire:click="edit({{ $item }})">
                         Editar
@@ -73,6 +73,10 @@
                     hover:text-white transition-all duration-500" wire:click="destroy({{ $item }})">
                         Eliminar
                     </button>
+                </div>
+
+                <div>
+                    @livewire('instructor.lesson-description',['lesson' => $item], key($item->id))
                 </div>
             </div>
             @endif
